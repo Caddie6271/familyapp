@@ -41,20 +41,21 @@ git add .
 git commit -m "Martin family hub"
 ```
 
-4. In the browser, go to https://github.com/new
-   - Repository name: `fam-app` (or anything you like)
-   - Private
-   - Do **not** add a README (you already have files)
-   - Create repository
-5. GitHub will show commands “push an existing repository.” Run the two it gives you. They look like:
+4. The GitHub repo already exists: https://github.com/Caddie6271/familyapp.git
+5. From inside the app folder:
 
 ```bash
-git remote add origin https://github.com/YOURUSER/fam-app.git
+git init
+git add .
+git commit -m "Martin family hub"
 git branch -M main
+git remote add origin https://github.com/Caddie6271/familyapp.git
 git push -u origin main
 ```
 
-Leave this tab. The code is now on GitHub.
+If `origin` already exists, use `git remote set-url origin https://github.com/Caddie6271/familyapp.git` instead of `git remote add`.
+
+Leave this tab. After the push succeeds, the code is on GitHub.
 
 ---
 
