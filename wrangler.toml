@@ -1,0 +1,9 @@
+name = "fam-app"
+compatibility_date = "2025-10-01"
+pages_build_output_dir = "dist"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fam-db"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
+preview_database_id = "REPLACE_WITH_D1_DATABASE_ID"
