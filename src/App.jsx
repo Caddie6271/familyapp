@@ -2,10 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { addDays, api, formatNice, monthMatrix, occurrenceDates, startOfWeek, todayISO } from "./lib/api.js";
 
 const TABS = [
-  { id: "calendar", label: "Calendar", ico: "📅" },
+  { id: "calendar", label: "Cal", ico: "📅" },
   { id: "menu", label: "Menu", ico: "🍽️" },
-  { id: "recipes", label: "Recipes", ico: "📖" },
-  { id: "groceries", label: "Groceries", ico: "🛒" },
+  { id: "recipes", label: "Cook", ico: "📖" },
+  { id: "groceries", label: "Shop", ico: "🛒" },
   { id: "lists", label: "Lists", ico: "✓" },
 ];
 
