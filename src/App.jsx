@@ -340,6 +340,7 @@ function CalendarPage({ people, types, onTypes }) {
 
       {view === "month" && (
         <>
+          <p className="muted" style={{ margin: "0 0 6px" }}>Tap a day. Events show below, not inside the square.</p>
           <div className="month-grid">
             {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
               <div className="dow" key={i}>{d}</div>
