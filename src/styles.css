@@ -79,7 +79,32 @@ body {
 .login-btn { display: inline-block; text-decoration: none; background: #fff6e8; color: #1e3a5f; }
 .login-fine { margin: 16px 0 0; font-size: .75rem; opacity: .65; }
 
-.page { padding: 14px 14px 24px; max-width: 920px; margin: 0 auto; width: 100%; }
+.page { padding: 14px 14px 24px; max-width: 920px; margin: 0 auto; width: 100%; overflow-x: hidden; }
+
+.month-grid {
+  display: grid;
+  grid-template-columns: repeat(7, minmax(0, 1fr));
+  gap: 3px;
+  width: 100%;
+}
+.dow { text-align: center; font-size: .7rem; color: var(--muted); font-weight: 700; padding: 4px 0; }
+.day {
+  min-height: 0;
+  aspect-ratio: 1;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 2px;
+  text-align: center;
+  color: inherit;
+  overflow: hidden;
+}
+.day.off { opacity: .4; }
+.day.today { outline: 2px solid var(--navy); }
+.day.selected { background: #e8eef6; }
+.day .n { font-size: .75rem; font-weight: 700; }
+.dots { display: flex; justify-content: center; gap: 2px; margin-top: 2px; min-height: 6px; }
+.cal-dot { width: 6px; height: 6px; border-radius: 99px; display: inline-block; }
 
 .nav {
   position: fixed;
@@ -139,25 +164,6 @@ label { display: block; font-size: .75rem; font-weight: 650; color: var(--muted)
 
 .muted { color: var(--muted); font-size: .85rem; }
 .h2 { margin: 0 0 10px; font-size: 1.1rem; }
-
-.month-grid {
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  gap: 4px;
-}
-.dow { text-align: center; font-size: .7rem; color: var(--muted); font-weight: 700; padding: 4px 0; }
-.day {
-  min-height: 72px;
-  background: white;
-  border: 1px solid var(--line);
-  border-radius: 10px;
-  padding: 4px;
-  text-align: left;
-  color: inherit;
-}
-.day.off { opacity: .4; }
-.day.today { outline: 2px solid var(--navy); }
-.day .n { font-size: .75rem; font-weight: 700; }
 .view-toggle {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

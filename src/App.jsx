@@ -339,25 +339,37 @@ function CalendarPage({ people, types, onTypes }) {
       )}
 
       {view === "month" && (
-        <div className="month-grid">
-          {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
-            <div className="dow" key={i}>{d}</div>
-          ))}
-          {weeks.flat().map((day) => (
-            <button
-              key={day.date}
-              className={`day ${day.inMonth ? "" : "off"} ${day.date === todayISO() ? "today" : ""}`}
-              onClick={() => { setAnchor(day.date); setView("day"); }}
-            >
-              <div className="n">{day.day}</div>
-              {(byDate[day.date] || []).slice(0, 2).map((ev) => (
-                <span key={`${ev.id}-${ev.occurrence_date || ev.start_date}`} className="pill" style={{ background: eventColor(ev, people) }}>
-                  {ev.title}
-                </span>
-              ))}
-            </button>
-          ))}
-        </div>
+        <>
+          <div className="month-grid">
+            {["S", "M", "T", "W", "T", "F", "S"].map((d, i) => (
+              <div className="dow" key={i}>{d}</div>
+            ))}
+            {weeks.flat().map((day) => {
+              const items = byDate[day.date] || [];
+              return (
+                <button
+                  key={day.date}
+                  className={`day ${day.inMonth ? "" : "off"} ${day.date === todayISO() ? "today" : ""} ${day.date === anchor ? "selected" : ""}`}
+                  onClick={() => setAnchor(day.date)}
+                >
+                  <div className="n">{day.day}</div>
+                  <div className="dots">
+                    {items.slice(0, 3).map((ev) => (
+                      <span key={`${ev.id}-${ev.occurrence_date || ev.start_date}`} className="cal-dot" style={{ background: eventColor(ev, people) }} />
+                    ))}
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          <div className="card" style={{ marginTop: 10 }}>
+            <div className="row space">
+              <strong>{formatNice(anchor)}</strong>
+              <button className="ghost small" onClick={() => setView("day")}>Open day</button>
+            </div>
+            <EventCards date={anchor} />
+          </div>
+        </>
       )}
 
       <div className="row" style={{ marginTop: 12 }}>
