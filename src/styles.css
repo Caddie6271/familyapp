@@ -87,7 +87,7 @@ body {
   background: white;
   border-top: 1px solid var(--line);
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   padding-bottom: var(--safe-b);
   z-index: 30;
 }
@@ -158,6 +158,41 @@ label { display: block; font-size: .75rem; font-weight: 650; color: var(--muted)
 .day.off { opacity: .4; }
 .day.today { outline: 2px solid var(--navy); }
 .day .n { font-size: .75rem; font-weight: 700; }
+.view-toggle {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px;
+  margin-bottom: 12px;
+  background: white;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 4px;
+}
+.view-toggle button {
+  border: 0;
+  background: transparent;
+  border-radius: 9px;
+  padding: 8px 4px;
+  font-weight: 700;
+  color: var(--muted);
+}
+.view-toggle button.on { background: var(--navy); color: white; }
+.agenda { display: flex; flex-direction: column; gap: 8px; }
+.agenda-item {
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  text-align: left;
+  background: #f7f4ee;
+  border: 0;
+  border-radius: 12px;
+  padding: 10px;
+  margin-top: 8px;
+  color: inherit;
+}
+.agenda-item strong { display: block; }
+.dot { width: 10px; height: 10px; border-radius: 99px; margin-top: 5px; flex: none; }
+.today-card { outline: 2px solid var(--navy); }
 .pill {
   display: block;
   font-size: .62rem;
@@ -231,4 +266,27 @@ label { display: block; font-size: .75rem; font-weight: 650; color: var(--muted)
   padding: 12px;
   border-radius: 12px;
   margin: 12px 14px;
+}
+
+.topbar { gap: 12px; flex-wrap: wrap; }
+.search-box { flex: 1; min-width: 160px; max-width: 280px; }
+.search-box input {
+  width: 100%;
+  margin: 0;
+  background: #16304d;
+  color: #fff;
+  border: 1px solid #2f5073;
+}
+.search-box input::placeholder { color: #c5d4e4; }
+.search-panel {
+  background: #fffdf8;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 16px 16px;
+}
+
+@media print {
+  .topbar, .nav, .search-panel, .search-box, form.card, button.ghost.small, button.danger { display: none !important; }
+  .app { padding-bottom: 0; }
+  .page { max-width: none; }
+  .card { break-inside: avoid; }
 }
